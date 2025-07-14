@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Portfolio Websites | Azim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(120deg, #f3e8ff 0%, #ede9fe 100%);
+      color: #2d033b;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      box-shadow: 0 2px 16px rgba(109,40,217,0.10);
+    }
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 68px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar a.active, .navbar a:hover {
+      background: #ede9fe;
+      color: #2d033b;
+    }
+    .hero-section {
+      background: linear-gradient(100deg, #a78bfa 0%, #6d28d9 100%);
+      color: #fff;
+      padding: 64px 20px 40px 20px;
+      text-align: center;
+    }
+    .hero-section h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .hero-section p {
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-bottom: 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .portfolio-types-section {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .portfolio-types-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+      margin-bottom: 36px;
+    }
+    .portfolio-type-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(109,40,217,0.10);
+      padding: 22px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .portfolio-type-card:hover {
+      box-shadow: 0 8px 32px rgba(109,40,217,0.18);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .portfolio-type-card img {
+      width: 100%;
+      max-width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      background: #ede9fe;
+    }
+    .portfolio-type-card h3 {
+      margin: 0 0 8px 0;
+      color: #6d28d9;
+      font-size: 1.08rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .portfolio-type-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: #2d033b;
+      text-align: center;
+    }
+    .included-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+    }
+    .included-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .included-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .included-item {
+      background: linear-gradient(90deg, #6d28d9 60%, #2d033b 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 10px 22px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sample-projects-section {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .sample-projects-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .sample-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .sample-project-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sample-project-card img {
+      width: 100%;
+      max-width: 180px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: #ede9fe;
+    }
+    .sample-project-card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #2d033b;
+      text-align: center;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 24px;
+      margin: 40px auto 0 auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: linear-gradient(90deg, #6d28d9 60%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 28px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #a78bfa 60%, #6d28d9 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    footer {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      text-align: center;
+      padding: 32px 0 18px 0;
+      margin-top: 40px;
+      width: 100vw;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+    .footer-content .copyright {
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .footer-content .footer-links {
+      margin-top: 12px;
+    }
+    .footer-content .footer-links a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin: 0 10px;
+    }
+    @media (max-width: 1000px) {
+      .portfolio-types-grid { grid-template-columns: 1fr 1fr; }
+      .sample-projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .hero-section h1 { font-size: 1.3rem; }
+      .hero-section p { font-size: 1rem; }
+      .portfolio-types-section, .included-section, .sample-projects-section {
+        padding: 14px 2vw;
+      }
+      .portfolio-type-card, .included-item, .sample-project-card {
+        font-size: 0.98rem;
+        padding: 12px 8px;
+      }
+      .cta-btn { padding: 10px 12px; font-size: 0.98rem; }
+    }
+    @media (max-width: 600px) {
+      .portfolio-types-grid, .sample-projects-grid { grid-template-columns: 1fr; }
+      .cta-btns { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button (left side, fixed position) -->
+  <a href="index.html" class="back-btn" style="position:fixed;top:10px;left:14px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(90deg,#ede9fe 60%,#a78bfa 100%);color:#6d28d9;font-weight:700;font-size:1.08rem;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(109,40,217,0.10);transition:background 0.2s,transform 0.2s;">
+    <span style="font-size:1.2rem;">&#8592;</span> Back
+  </a>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Azim</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-section">
+    <h1>Custom Portfolio Websites</h1>
+    <p>
+      Stand out online with a professional portfolio website. Showcase your work, skills, and achievements to attract clients, employers, or collaborators. A great portfolio builds trust and opens new opportunities!
+    </p>
+  </section>
+  <section class="portfolio-types-section">
+    <div class="portfolio-types-grid">
+      <div class="portfolio-type-card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Web Developer Portfolio">
+        <h3>Web Developer Portfolio</h3>
+        <p>Showcase your coding projects, skills, and experience with a modern, interactive site.</p>
+      </div>
+      <div class="portfolio-type-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Graphic Designer Portfolio">
+        <h3>Graphic Designer Portfolio</h3>
+        <p>Display your best designs, illustrations, and branding work in a beautiful gallery.</p>
+      </div>
+      <div class="portfolio-type-card">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Video Editor Portfolio">
+        <h3>Video Editor Portfolio</h3>
+        <p>Embed video reels, YouTube links, and highlight your editing skills and projects.</p>
+      </div>
+      <div class="portfolio-type-card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Business Professional Portfolio">
+        <h3>Business Professional Portfolio</h3>
+        <p>Present your resume, achievements, and testimonials to impress employers or clients.</p>
+      </div>
+    </div>
+  </section>
+  <section class="included-section">
+    <h2>What's Included in Every Portfolio</h2>
+    <div class="included-list">
+      <span class="included-item">📱 Responsive Design</span>
+      <span class="included-item">✉️ Contact Form</span>
+      <span class="included-item">🖼️ Gallery/Showcase</span>
+      <span class="included-item">📄 Resume/CV Section</span>
+      <span class="included-item">🔍 SEO Optimized</span>
+    </div>
+  </section>
+  <section class="sample-projects-section">
+    <h2>Sample Portfolio Projects</h2>
+    <div class="sample-projects-grid">
+      <div class="sample-project-card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Sample Web Dev Portfolio">
+        <p>Modern Web Developer Portfolio</p>
+      </div>
+      <div class="sample-project-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Sample Designer Portfolio">
+        <p>Creative Designer Portfolio</p>
+      </div>
+      <div class="sample-project-card">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Sample Video Editor Portfolio">
+        <p>Video Editor Portfolio</p>
+      </div>
+    </div>
+  </section>
+  <div class="cta-btns">
+    <a href="contact.html" class="cta-btn">Start Your Portfolio</a>
+    <a href="contact.html" class="cta-btn" style="background:linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);">Get a Free Quote</a>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="copyright">
+        &copy; 2025 Azim. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>|
+        <a href="about.html">About Me</a>|
+        <a href="services.html">Services</a>|
+        <a href="contact.html">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

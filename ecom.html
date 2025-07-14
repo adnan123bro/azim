@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom eCommerce Websites That Sell | Azim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(120deg, #f3e8ff 0%, #ede9fe 100%);
+      color: #2d033b;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      box-shadow: 0 2px 16px rgba(109,40,217,0.10);
+    }
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 68px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar a.active, .navbar a:hover {
+      background: #ede9fe;
+      color: #2d033b;
+    }
+    .hero-section {
+      background: linear-gradient(100deg, #a78bfa 0%, #6d28d9 100%);
+      color: #fff;
+      padding: 64px 20px 40px 20px;
+      text-align: center;
+    }
+    .hero-section h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .hero-section p {
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: linear-gradient(90deg, #6d28d9 60%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 28px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #a78bfa 60%, #6d28d9 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .who-needs-section {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .who-needs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .who-needs-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(109,40,217,0.10);
+      padding: 22px 14px;
+      min-width: 160px;
+      max-width: 200px;
+      flex: 1 1 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #6d28d9;
+    }
+    .who-needs-card span {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #6d28d9;
+    }
+    .features-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+    }
+    .features-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .feature-item {
+      background: linear-gradient(90deg, #6d28d9 60%, #2d033b 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 10px 22px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .products-section {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .products-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      padding: 18px 12px;
+      min-width: 180px;
+      max-width: 220px;
+      flex: 1 1 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-card img {
+      width: 100%;
+      max-width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: #ede9fe;
+    }
+    .product-card h3 {
+      margin: 0 0 6px 0;
+      color: #6d28d9;
+      font-size: 1.08rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .product-card .price {
+      color: #2d033b;
+      font-weight: 800;
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+    .product-card button {
+      padding: 8px 22px;
+      background: linear-gradient(90deg, #6d28d9 60%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 18px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+    .product-card button:hover {
+      background: linear-gradient(90deg, #a78bfa 60%, #6d28d9 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .platforms-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .platforms-section h2 {
+      color: #6d28d9;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .platforms-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .platform-badge {
+      background: #a78bfa;
+      color: #fff;
+      border-radius: 18px;
+      padding: 10px 22px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .cta-section .cta-btns {
+      margin-top: 18px;
+    }
+    footer {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      text-align: center;
+      padding: 32px 0 18px 0;
+      margin-top: 40px;
+      width: 100vw;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+    .footer-content .copyright {
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .footer-content .footer-links {
+      margin-top: 12px;
+    }
+    .footer-content .footer-links a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin: 0 10px;
+    }
+    @media (max-width: 1000px) {
+      .who-needs-grid, .products-grid { flex-direction: column; gap: 16px; }
+    }
+    @media (max-width: 700px) {
+      .hero-section h1 { font-size: 1.3rem; }
+      .hero-section p { font-size: 1rem; }
+      .who-needs-section, .features-section, .products-section, .platforms-section, .cta-section {
+        padding: 14px 2vw;
+      }
+      .who-needs-card, .feature-item, .product-card, .platform-badge {
+        font-size: 0.98rem;
+        padding: 12px 8px;
+      }
+      .cta-btn { padding: 10px 12px; font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button (left side, fixed position) -->
+  <a href="index.html" class="back-btn" style="position:fixed;top:10px;left:14px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(90deg,#ede9fe 60%,#a78bfa 100%);color:#6d28d9;font-weight:700;font-size:1.08rem;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(109,40,217,0.10);transition:background 0.2s,transform 0.2s;">
+    <span style="font-size:1.2rem;">&#8592;</span> Back
+  </a>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Azim</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-section">
+    <h1>Custom eCommerce Websites That Sell</h1>
+    <p>
+      Launch your online store with a modern, secure, and mobile-friendly website. Sell your products, manage orders, and grow your business with ease!
+    </p>
+    <div class="cta-btns">
+      <a href="contact.html" class="cta-btn">Request a Demo</a>
+      <a href="contact.html" class="cta-btn" style="background:linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);">Start Your Store</a>
+    </div>
+  </section>
+  <section class="who-needs-section">
+    <div class="who-needs-grid">
+      <div class="who-needs-card"><span>👗</span>Clothing Stores</div>
+      <div class="who-needs-card"><span>🍔</span>Food & Groceries</div>
+      <div class="who-needs-card"><span>📚</span>Book Sellers</div>
+      <div class="who-needs-card"><span>💄</span>Cosmetics Shops</div>
+      <div class="who-needs-card"><span>🏪</span>Local Sellers</div>
+    </div>
+  </section>
+  <section class="features-section">
+    <h2>eCommerce Features</h2>
+    <div class="features-list">
+      <span class="feature-item">🛒 Product Listing</span>
+      <span class="feature-item">🛍️ Shopping Cart</span>
+      <span class="feature-item">💳 Payment Gateway</span>
+      <span class="feature-item">📦 Order Management</span>
+      <span class="feature-item">📱 Mobile-Friendly Design</span>
+      <span class="feature-item">📈 Analytics Integration</span>
+    </div>
+  </section>
+  <section class="products-section">
+    <h2>Sample Products</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="T-shirt">
+        <h3>Trendy T-shirt</h3>
+        <div class="price">₹499</div>
+        <button>Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Organic Face Cream">
+        <h3>Organic Face Cream</h3>
+        <div class="price">₹799</div>
+        <button>Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Book">
+        <h3>Motivational Book</h3>
+        <div class="price">₹299</div>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </section>
+  <section class="platforms-section">
+    <h2>Supported Platforms</h2>
+    <div class="platforms-list">
+      <span class="platform-badge">Shopify</span>
+      <span class="platform-badge">WooCommerce</span>
+      <span class="platform-badge">React</span>
+      <span class="platform-badge">Firebase</span>
+      <span class="platform-badge">WordPress</span>
+      <span class="platform-badge">Custom Code</span>
+    </div>
+  </section>
+  <section class="cta-section">
+    <h2>Ready to Launch Your Store?</h2>
+    <div class="cta-btns">
+      <a href="contact.html" class="cta-btn">Get Quote</a>
+      <a href="contact.html" class="cta-btn" style="background:linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);">Launch My Store</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="copyright">
+        &copy; 2025 Azim. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>|
+        <a href="about.html">About Me</a>|
+        <a href="services.html">Services</a>|
+        <a href="contact.html">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

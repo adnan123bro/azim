@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Azim Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat fixed;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .contact-section {
+            background: rgba(255,255,255,0.97);
+            max-width: 700px;
+            margin: 48px auto 32px auto;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 36px 28px 28px 28px;
+        }
+        .section-title {
+            font-size: 2rem;
+            color: #6d28d9;
+            text-align: center;
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+        .contact-form label {
+            font-weight: 500;
+            margin-top: 12px;
+            display: block;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            margin-bottom: 14px;
+            border-radius: 7px;
+            border: 1px solid #a78bfa;
+            font-size: 1rem;
+            background: #f3e8ff;
+            color: #2d033b;
+        }
+        .contact-form button {
+            background: linear-gradient(90deg,#6d28d9 60%,#a78bfa 100%);
+            color: #fff;
+            border: none;
+            border-radius: 22px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+        }
+        .contact-form button:hover {
+            background: linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);
+        }
+        .contact-info {
+            margin-top: 32px;
+            text-align: center;
+        }
+        .contact-info a {
+            color: #6d28d9;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 1.1rem;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .map-container {
+            margin: 32px 0 0 0;
+            text-align: center;
+        }
+        .map-container iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 220px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .social-links {
+            margin-top: 18px;
+            text-align: center;
+        }
+        .social-links a {
+            color: #6d28d9;
+            margin: 0 10px;
+            font-size: 1.7rem;
+            transition: color 0.2s;
+        }
+        .social-links a:hover {
+            color: #a78bfa;
+        }
+        /* Header & Footer */
+        .header {
+            background: rgba(255,255,255,0.97);
+            padding: 0;
+            box-shadow: 0 2px 16px rgba(109,40,217,0.06);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 24px;
+        }
+        .web-name {
+            color: #6d28d9;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .nav-links a {
+            color: #2d033b;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a.active, .nav-links a:hover {
+            color: #6d28d9;
+        }
+        .footer {
+            background: linear-gradient(90deg,#6d28d9 0%,#2d033b 100%);
+            color: #fff;
+            text-align: center;
+            padding: 32px 0 18px 0;
+            margin-top: 40px;
+            border-top: 2px solid #a78bfa;
+        }
+        .footer a {
+            color: #fff;
+            margin: 0 8px;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        .footer a:hover {
+            color: #a78bfa !important;
+            text-decoration: underline;
+        }
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 10px;
+            left: 14px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: linear-gradient(90deg,#ede9fe 60%,#a78bfa 100%);
+            color: #6d28d9;
+            font-weight: 700;
+            font-size: 1.08rem;
+            border-radius: 22px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+            transition: background 0.2s,transform 0.2s;
+        }
+        .back-btn:hover {
+            background: linear-gradient(90deg,#a78bfa 60%,#ede9fe 100%);
+            color: #2d033b;
+        }
+        /* Testimonials Section */
+        .testimonials-section {
+            max-width: 1200px;
+            margin: 48px auto 40px auto;
+            padding: 0 16px;
+        }
+        .testimonials-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #6d28d9;
+            margin-bottom: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+        .testimonials-carousel {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+        .testimonial-card {
+            min-width: 100%;
+            max-width: 100%;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(109,40,217,0.08);
+            padding: 22px 18px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 140px;
+            border: 1px solid #ede9fe;
+            margin: 0 8px;
+            opacity: 1;
+            transition: transform 0.4s, box-shadow 0.2s;
+        }
+        .testimonial-stars {
+          color: #ffc107;
+          font-size: 1.3rem;
+          margin-bottom: 8px;
+          letter-spacing: 2px;
+        }
+        .testimonial-message {
+          font-size: 1.08rem;
+          color: #2d033b;
+          margin-bottom: 10px;
+          font-style: italic;
+        }
+        .testimonial-name {
+          font-size: 1rem;
+          color: #6d28d9;
+          font-weight: 700;
+          margin-top: auto;
+        }
+        .testimonial-controls {
+          display: flex;
+          justify-content: center;
+          gap: 18px;
+          margin-top: 18px;
+        }
+        .testimonial-controls button {
+          background: #ede9fe;
+          color: #6d28d9;
+          border: none;
+          border-radius: 50%;
+          width: 38px;
+          height: 38px;
+          font-size: 1.4rem;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+          transition: background 0.2s, color 0.2s;
+        }
+        .testimonial-controls button:hover {
+          background: #a78bfa;
+          color: #fff;
+        }
+        @media (max-width: 900px) {
+          .testimonials-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        @media (max-width: 600px) {
+          .testimonials-grid {
+            grid-template-columns: 1fr;
+          }
+          .testimonials-section {
+            padding: 0 4vw;
+          }
+        }
+        @media (max-width: 700px) {
+          .testimonials-section { padding: 0 4vw; }
+          .testimonial-card { padding: 18px 8px 12px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button (left side, fixed position) -->
+    <a href="index.html" class="back-btn">
+        <span style="font-size:1.2rem;">&#8592;</span> Back
+    </a>
+    <!-- Header/Navbar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="web-name">Azim Portfolio</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html" class="active">Contact Me</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <div class="section-title">Contact Me</div>
+        <form class="contact-form" autocomplete="off" id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10,15}" required placeholder="Enter your mobile number">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3" required></textarea>
+
+            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <div style="margin-bottom:8px;">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="https://maps.app.goo.gl/MYgnNsEvK83WAXc3A?g_st=com.google.maps.preview.copy" target="_blank">
+                    View Office Location on Map
+                </a>
+            </div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <a href="tel:9957684747">9957684747</a>
+                &nbsp;|&nbsp;
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:azim21318@gmail.com">azim21318@gmail.com</a>
+                &nbsp;|&nbsp;
+                <i class="fab fa-whatsapp"></i>
+                <a href="#" id="whatsapp-link">9957683747</a>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/azim__chy?igsh=N3J2cDJqdndkc3g=0.106" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" id="footer-facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" id="footer-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=26.1445,91.7362&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <h2 class="testimonials-title">What My Clients Say</h2>
+      <div class="testimonials-carousel" id="testimonials-carousel">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Excellent service and very professional. Highly recommended!"</div>
+          <div class="testimonial-name">– Priya Sharma</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Website delivered on time and exceeded my expectations."</div>
+          <div class="testimonial-name">– Amit Verma</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★☆</div>
+          <div class="testimonial-message">"Very responsive and helpful throughout the project."</div>
+          <div class="testimonial-name">– Sneha Patel</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Great design and support. Will work again!"</div>
+          <div class="testimonial-name">– Rahul Singh</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Azim made my business website look amazing. Thank you!"</div>
+          <div class="testimonial-name">– Kavita Joshi</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★☆</div>
+          <div class="testimonial-message">"Quick turnaround and very friendly communication."</div>
+          <div class="testimonial-name">– Deepak Kumar</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Very creative and always available for support."</div>
+          <div class="testimonial-name">– Ritu Agarwal</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Affordable and quality work. Highly satisfied."</div>
+          <div class="testimonial-name">– Suresh Nair</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"My portfolio looks stunning. Thank you Azim!"</div>
+          <div class="testimonial-name">– Meena Gupta</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-message">"Best web developer I have worked with."</div>
+          <div class="testimonial-name">– Arjun Desai</div>
+        </div>
+        <!-- Add more testimonial-card divs as needed -->
+      </div>
+      <div class="testimonial-controls">
+        <button id="testimonial-prev" aria-label="Previous testimonial">&#8592;</button>
+        <button id="testimonial-next" aria-label="Next testimonial">&#8594;</button>
+      </div>
+    </section>
+
+    <footer style="background: linear-gradient(90deg,#6d28d9 0%,#2d033b 100%); color: #fff; text-align: center; padding: 32px 0 18px 0; margin-top: 40px; border-top: 2px solid #a78bfa;">
+      <div style="max-width: 1100px; margin: auto;">
+        <div style="font-weight: 700; font-size: 1.15rem;">
+          © 2025 Azim Portfolio. All rights reserved.
+        </div>
+        <div style="margin:14px 0;">
+          <a href="https://www.instagram.com/azim__chy?igsh=N3J2cDJqdndkc3g=0.106" target="_blank" style="color:#a78bfa;margin:0 10px;font-size:1.7rem;"><i class="fab fa-instagram"></i></a>
+          <a href="#" id="footer-facebook" style="color:#fff;margin:0 10px;font-size:1.7rem;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" id="footer-whatsapp" style="color:#25d366;margin:0 10px;font-size:1.7rem;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div style="margin-top:8px;">
+          <a href="index.html" style="color:#fff;text-decoration:underline;font-weight:700;font-size:1.08rem;margin:0 10px;">Home</a>|
+          <a href="about.html" style="color:#fff;text-decoration:underline;font-weight:700;font-size:1.08rem;margin:0 10px;">About Me</a>|
+          <a href="services.html" style="color:#fff;text-decoration:underline;font-weight:700;font-size:1.08rem;margin:0 10px;">Services</a>|
+          <a href="contact.html" style="color:#fff;text-decoration:underline;font-weight:700;font-size:1.08rem;margin:0 10px;">Contact Me</a>
+        </div>
+      </div>
+    </footer>
+    <script>
+        // WhatsApp click handler
+        document.getElementById('whatsapp-link').onclick = function(e) {
+            e.preventDefault();
+            window.open('https://wa.me/919957684747', '_blank');
+        };
+        // Footer WhatsApp icon click
+        document.getElementById('footer-whatsapp').onclick = function(e) {
+            e.preventDefault();
+            window.open('https://wa.me/919957684747', '_blank');
+        };
+        // Footer Facebook icon click (replace # with your Facebook link if needed)
+        document.getElementById('footer-facebook').onclick = function(e) {
+            e.preventDefault();
+            alert('Facebook page link not set.');
+        };
+        // Contact form submit: send to WhatsApp
+        document.getElementById('contactForm').onsubmit = function(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var mobile = document.getElementById('mobile').value.trim();
+            var message = document.getElementById('message').value.trim();
+            var text =
+                "New Contact Query from Azim Portfolio:%0A" +
+                "*Name:* " + encodeURIComponent(name) + "%0A" +
+                "*Email:* " + encodeURIComponent(email) + "%0A" +
+                "*Mobile:* " + encodeURIComponent(mobile) + "%0A" +
+                "*Message:* " + encodeURIComponent(message);
+            window.open("https://wa.me/919957684747?text=" + text, "_blank");
+            this.reset();
+        };
+
+        const carousel = document.getElementById('testimonials-carousel');
+        const cards = carousel.querySelectorAll('.testimonial-card');
+        let currentIndex = 0;
+        let autoRotate;
+
+        function showTestimonial(index) {
+          if(index < 0) index = cards.length - 1;
+          if(index >= cards.length) index = 0;
+          currentIndex = index;
+          carousel.scrollTo({
+            left: cards[0].offsetWidth * index,
+            behavior: 'smooth'
+          });
+        }
+
+        function nextTestimonial() {
+          showTestimonial(currentIndex + 1);
+        }
+
+        function prevTestimonial() {
+          showTestimonial(currentIndex - 1);
+        }
+
+        document.getElementById('testimonial-next').onclick = nextTestimonial;
+        document.getElementById('testimonial-prev').onclick = prevTestimonial;
+
+        // Auto-rotate every 4 seconds
+        function startAutoRotate() {
+          autoRotate = setInterval(nextTestimonial, 4000);
+        }
+        function stopAutoRotate() {
+          clearInterval(autoRotate);
+        }
+        carousel.addEventListener('mouseenter', stopAutoRotate);
+        carousel.addEventListener('mouseleave', startAutoRotate);
+        startAutoRotate();
+
+        // Swipe support for mobile
+        let startX = 0;
+        carousel.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          stopAutoRotate();
+        });
+        carousel.addEventListener('touchend', (e) => {
+          let endX = e.changedTouches[0].clientX;
+          if (endX - startX > 50) prevTestimonial();
+          else if (startX - endX > 50) nextTestimonial();
+          startAutoRotate();
+        });
+    </script>
+</body>
+</html>

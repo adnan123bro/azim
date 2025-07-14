@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Integrated Websites | Azim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(120deg, #f3e8ff 0%, #ede9fe 100%);
+      color: #2d033b;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      box-shadow: 0 2px 16px rgba(109,40,217,0.10);
+    }
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 68px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar a.active, .navbar a:hover {
+      background: #ede9fe;
+      color: #2d033b;
+    }
+    .hero-section {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      padding: 48px 0 32px 0;
+      background: none;
+    }
+    .hero-section::after {
+      content: none;
+    }
+    .hero-section video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 1;
+    }
+    .hero-section > div {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 700px;
+      padding: 0 18px;
+      text-align: center;
+    }
+    .hero-section h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      color:#fff;
+      text-shadow:0 2px 12px #232b5d;
+    }
+    .hero-section p {
+      font-size: 1.08rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      color:#f3e8ff;
+      text-shadow:0 1px 6px #232b5d;
+      line-height:1.6;
+      max-width:600px;
+    }
+    .hero-section a {
+      display:inline-block;
+      padding:14px 38px;
+      background:#fff;
+      color:#6d28d9;
+      font-weight:800;
+      font-size:1.08rem;
+      border-radius:28px;
+      text-decoration:none;
+      box-shadow:0 2px 8px rgba(109,40,217,0.10);
+      transition:background 0.2s, color 0.2s, transform 0.2s;
+      margin-top:8px;
+      border:2px solid #6d28d9;
+    }
+    .hero-section a:hover {
+      background:#6d28d9;
+      color:#fff;
+    }
+    .intro-section {
+      max-width: 800px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .intro-section p {
+      font-size: 1.13rem;
+      color: #2d033b;
+      margin: 0;
+    }
+    .features-section {
+      max-width: 1100px;
+      margin: 48px auto 0 auto;
+      padding: 0 24px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+      margin-bottom: 36px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(109,40,217,0.10);
+      padding: 22px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      min-width: 120px;
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 32px rgba(109,40,217,0.18);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .feature-card span {
+      font-size: 2.1rem;
+      margin-bottom: 10px;
+      color: #6d28d9;
+    }
+    .feature-card p {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #2d033b;
+      text-align: center;
+    }
+    .tech-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .tech-section h2 {
+      color: #6d28d9;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tech-badge {
+      background: #a78bfa;
+      color: #fff;
+      border-radius: 18px;
+      padding: 10px 22px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .usecases-section {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .usecases-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .usecases-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .usecase-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.08);
+      padding: 18px 12px;
+      min-width: 220px;
+      max-width: 320px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .usecase-card h3 {
+      margin: 0 0 6px 0;
+      color: #6d28d9;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+    .usecase-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: #2d033b;
+    }
+    .ai-class-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .ai-class-section h2 {
+      color: #6d28d9;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .ai-class-section p {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+    .ai-class-section .price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #2d033b;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .ai-class-section .cta-btn {
+      margin-top: 10px;
+    }
+    .cta-section {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.10);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: #6d28d9;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .cta-section .price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2d033b;
+      margin-bottom: 8px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 24px;
+      margin-top: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: linear-gradient(90deg, #6d28d9 60%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 28px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #a78bfa 60%, #6d28d9 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    footer {
+      background: linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%);
+      color: #fff;
+      text-align: center;
+      padding: 32px 0 18px 0;
+      margin-top: 40px;
+      width: 100vw;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+    .footer-content .copyright {
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .footer-content .footer-links {
+      margin-top: 12px;
+    }
+    .footer-content .footer-links a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin: 0 10px;
+    }
+    @media (max-width: 1100px) {
+      .features-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    @media (max-width: 800px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .usecases-grid { flex-direction: column; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .hero-section h1 { font-size: 1.3rem; }
+      .hero-section p { font-size: 1rem; }
+      .features-section, .tech-section, .usecases-section, .ai-class-section, .cta-section {
+        padding: 14px 2vw;
+      }
+      .feature-card, .tech-badge, .usecase-card {
+        font-size: 0.98rem;
+        padding: 12px 8px;
+      }
+      .cta-btn { padding: 10px 12px; font-size: 0.98rem; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+    /* Enroll Popup Styles */
+    .enroll-modal {
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(45,3,59,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: enrollFadeIn 0.3s;
+}
+@keyframes enrollFadeIn { from { opacity:0; } to { opacity:1; } }
+.enroll-modal-content {
+  background: #fff;
+  border-radius: 28px;
+  max-width: 480px;
+  width: 96vw;
+  box-shadow: 0 8px 40px rgba(109,40,217,0.18);
+  padding: 38px 28px 28px 28px;
+  position: relative;
+  text-align: center;
+  animation: enrollFadeIn 0.3s;
+}
+.enroll-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #6d28d9;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.enroll-close:hover { color: #2d033b; }
+.enroll-modal-content h2 {
+  color: #6d28d9;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.enroll-upi-info {
+  margin-bottom: 18px;
+}
+.enroll-upi-id {
+  font-size: 1.08rem;
+  color: #2d033b;
+  margin-bottom: 8px;
+}
+.enroll-qr {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: #ede9fe;
+  box-shadow: 0 2px 12px rgba(109,40,217,0.10);
+}
+.enroll-pay-text {
+  font-size: 1.02rem;
+  color: #6d28d9;
+  margin-bottom: 8px;
+}
+.enroll-pay-icons img {
+  width: 32px; height: 32px;
+  margin: 0 4px 0 0;
+  vertical-align: middle;
+}
+.enroll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Increased gap for larger form */
+  margin-top: 18px;
+}
+.enroll-form input {
+  padding: 18px; /* Larger input fields */
+  border-radius: 10px;
+  border: 1.5px solid #a78bfa;
+  font-size: 1.18rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.enroll-form input:focus {
+  border: 2px solid #6d28d9;
+}
+.enroll-form button {
+  padding: 18px;
+  background: linear-gradient(90deg,#6d28d9 60%,#a78bfa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  font-weight: 800;
+  font-size: 1.18rem;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.enroll-form button:hover {
+  background: linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width:600px) {
+  .enroll-modal-content { padding: 18px 4vw 14px 4vw; }
+  .enroll-qr { width: 100px; height: 100px; }
+  .enroll-modal-content h2 { font-size: 1.1rem; }
+}
+  </style>
+</head>
+<body>
+  <!-- Back Button (left side, fixed position) -->
+  <a href="index.html" class="back-btn" style="position:fixed;top:10px;left:14px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(90deg,#ede9fe 60%,#a78bfa 100%);color:#6d28d9;font-weight:700;font-size:1.08rem;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(109,40,217,0.10);transition:background 0.2s,transform 0.2s;">
+    <span style="font-size:1.2rem;">&#8592;</span> Back
+  </a>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Azim</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-section" style="position:relative; min-height:420px; display:flex; align-items:center; justify-content:center; overflow:hidden; color:#fff; padding:48px 0 32px 0;">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline
+    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <source src="Dark Blue Modern Artificial Intelligence Video 2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <!-- Content -->
+  <div style="
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    max-width:700px;
+    padding:0 18px;
+    text-align:center;
+  ">
+    <h1 style="
+      font-size:2.1rem;
+      font-weight:800;
+      margin-bottom:18px;
+      letter-spacing:1px;
+      color:#fff;
+      text-shadow:0 2px 12px #232b5d;
+    ">
+      AI-Driven Websites for Your Business
+    </h1>
+    <p style="
+      font-size:1.08rem;
+      font-weight:500;
+      margin-bottom:28px;
+      color:#f3e8ff;
+      text-shadow:0 1px 6px #232b5d;
+      line-height:1.6;
+      max-width:600px;
+    ">
+      Enhance your site with modern AI tools like chatbots, smart search, and automation. Get a smarter, faster, and more engaging website for your customers.
+    </p>
+  </div>
+</section>
+  <section class="intro-section">
+    <p>
+      AI-powered websites improve user experience, automate repetitive tasks, and boost engagement with personalized content and smart features. Stay ahead of the competition by integrating AI into your business or personal site.
+    </p>
+  </section>
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-card">
+        <span>🤖</span>
+        <p>AI Chatbot<br><small>24/7 customer support</small></p>
+      </div>
+      <div class="feature-card">
+        <span>🎯</span>
+        <p>Recommendation Systems<br><small>Smart suggestions</small></p>
+      </div>
+      <div class="feature-card">
+        <span>🔎</span>
+        <p>AI-Powered Search<br><small>Improved UX</small></p>
+      </div>
+      <div class="feature-card">
+        <span>📝</span>
+        <p>Smart Forms<br><small>Auto-fill & prediction</small></p>
+      </div>
+      <div class="feature-card">
+        <span>📊</span>
+        <p>Analytics & Automation</p>
+      </div>
+    </div>
+  </section>
+  <section class="tech-section">
+    <h2>Technologies Used</h2>
+    <div class="tech-list">
+      <span class="tech-badge">OpenAI API</span>
+      <span class="tech-badge">Google Dialogflow</span>
+      <span class="tech-badge">Firebase</span>
+      <span class="tech-badge">Python</span>
+      <span class="tech-badge">React</span>
+    </div>
+  </section>
+  <section class="usecases-section">
+    <h2>Real-World Use Cases</h2>
+    <div class="usecases-grid">
+      <div class="usecase-card">
+        <h3>Real Estate Chatbot</h3>
+        <p>Let visitors chat with an AI bot to find the best property based on their needs and budget.</p>
+      </div>
+      <div class="usecase-card">
+        <h3>eCommerce Recommendation Engine</h3>
+        <p>Suggests the right products to users based on their browsing and purchase history.</p>
+      </div>
+      <div class="usecase-card">
+        <h3>Auto-Reply Contact Forms</h3>
+        <p>Instantly responds to user queries and routes messages to the right department or person.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Replace the old AI section with this video embed in the same space -->
+<section class="ai-video-section" style="width:100%;max-width:900px;margin:48px auto 32px auto;display:flex;justify-content:center;align-items:center;">
+  <video autoplay muted loop playsinline style="width:100%;max-width:700px;border-radius:18px;box-shadow:0 4px 24px rgba(34,34,34,0.18);">
+    <source src="Blue and White Modern Artificial Intelligence Video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+  <section class="cta-section">
+    <h2>Ready to Add AI to Your Website?</h2>
+    <div class="price">Pricing starts from ₹2,999</div>
+    <div class="cta-btns">
+      <a href="contact.html" class="cta-btn">Request AI Integration</a>
+      <a href="contact.html" class="cta-btn" style="background:linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);">Talk to Me</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="copyright">
+        &copy; 2025 Azim. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>|
+        <a href="about.html">About Me</a>|
+        <a href="services.html">Services</a>|
+        <a href="contact.html">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enroll Modal Overlay -->
+<div id="enroll-modal" style="display:none; position:fixed; z-index:99999; left:0; top:0; width:100vw; height:100vh; background:rgba(45,3,59,0.75); align-items:center; justify-content:center;">
+  <div id="enroll-card" style="background:#fff; border-radius:22px; max-width:420px; width:95vw; margin:auto; box-shadow:0 8px 32px rgba(109,40,217,0.18); padding:32px 18px 22px 18px; position:relative; animation:fadeIn 0.3s;">
+    <button onclick="closeEnrollModal()" style="position:absolute; top:16px; right:18px; background:none; border:none; font-size:1.6rem; color:#6d28d9; cursor:pointer;">&times;</button>
+    <h2 style="color:#6d28d9; text-align:center; margin-top:0;">Enroll in AI Course – ₹499</h2>
+    <div style="text-align:center; margin-bottom:18px;">
+      <div style="font-size:1.08rem; margin-bottom:8px;">Pay via UPI:</div>
+      <div style="font-weight:700; color:#2d033b; margin-bottom:8px;">azim9957@axisbank</div>
+      <img id="enroll-qr-img" class="enroll-qr" alt="UPI QR Code">
+      <div style="font-size:0.98rem; color:#6d28d9; margin-bottom:8px;">
+        <span style="margin:0 4px;">Accepted:</span>
+        <img src="https://img.icons8.com/color/32/phonepe.png" alt="PhonePe" style="vertical-align:middle;">
+        <img src="https://img.icons8.com/color/32/google-pay-india.png" alt="GPay" style="vertical-align:middle;">
+        <img src="https://img.icons8.com/color/32/paytm.png" alt="Paytm" style="vertical-align:middle;">
+        <img src="https://img.icons8.com/color/32/bank-card-back-side.png" alt="Card" style="vertical-align:middle;">
+      </div>
+      <div style="font-size:0.95rem; color:#2d033b;">You can pay using PhonePe, GPay, Paytm, or any UPI app / Debit/Credit Card (via UPI).</div>
+    </div>
+    <form id="enroll-form" style="display:block;">
+      <input type="text" name="fullname" placeholder="Full Name" required style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1px solid #a78bfa;font-size:1rem;">
+      <input type="email" name="email" placeholder="Email" required style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1px solid #a78bfa;font-size:1rem;">
+      <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1px solid #a78bfa;font-size:1rem;">
+      <input type="text" name="txnid" placeholder="Transaction ID (after payment)" required style="width:100%;margin-bottom:14px;padding:10px;border-radius:8px;border:1px solid #a78bfa;font-size:1rem;">
+      <button type="submit" style="width:100%;padding:12px;background:linear-gradient(90deg,#6d28d9 60%,#a78bfa 100%);color:#fff;border:none;border-radius:22px;font-weight:700;font-size:1.1rem;cursor:pointer;">Submit & Enroll</button>
+    </form>
+    <div id="enroll-thankyou" style="display:none; text-align:center; color:#2d033b; font-size:1.12rem; margin-top:18px;">
+      <b>Thank you for enrolling!</b><br>
+      Your details have been received.<br>
+      We will contact you soon with course access.
+    </div>
+  </div>
+</div>
+<style>
+@keyframes fadeIn { from { opacity:0; transform:scale(0.96);} to { opacity:1; transform:scale(1);} }
+@media (max-width:600px) {
+  #enroll-card { padding:18px 4vw 14px 4vw; }
+}
+</style>
+<script>
+  // Open modal on button click
+  document.addEventListener('DOMContentLoaded', function() {
+    var enrollBtn = document.querySelector('.ai-class-section .cta-btn');
+    if(enrollBtn) {
+      enrollBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        document.getElementById('enroll-modal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+  // Close modal
+  function closeEnrollModal() {
+    document.getElementById('enroll-modal').style.display = 'none';
+    document.body.style.overflow = '';
+    document.getElementById('enroll-form').style.display = 'block';
+    document.getElementById('enroll-thankyou').style.display = 'none';
+  }
+  // Handle form submit
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('enroll-form');
+    if(form) {
+      form.onsubmit = function(e){
+        e.preventDefault();
+        form.style.display = 'none';
+        document.getElementById('enroll-thankyou').style.display = 'block';
+        // Here you can add AJAX to send data to your server or email service if needed
+      };
+    }
+  });
+</script>
+
+<!-- New Enroll Popup Code -->
+<div id="enroll-popup" class="enroll-modal" style="display:none;">
+  <div class="enroll-modal-content">
+    <button class="enroll-close" onclick="closeEnrollPopup()">&times;</button>
+    <h2>Pay ₹499 to Enroll in the AI Course</h2>
+    <div class="enroll-payment-section">
+      <div class="enroll-upi-info">
+        <div class="enroll-upi-id"><b>UPI ID:</b> azim9957@axisbank</div>
+        <img class="enroll-qr" src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=azim9957@axisbank&pn=AzimAIClass&am=499&cu=INR&size=220x220" alt="UPI QR Code">
+        <div class="enroll-pay-text">Scan &amp; Pay using your favorite payment app</div>
+        <div class="enroll-pay-icons">
+          <img src="https://img.icons8.com/color/48/phonepe.png" alt="PhonePe">
+          <img src="https://img.icons8.com/color/48/google-pay-india.png" alt="Google Pay">
+          <img src="https://img.icons8.com/color/48/paytm.png" alt="Paytm">
+          <img src="https://img.icons8.com/color/48/bank-card-back-side.png" alt="Card">
+          <img src="https://img.icons8.com/color/48/upi.png" alt="UPI">
+        </div>
+      </div>
+    </div>
+    <form id="enroll-popup-form" class="enroll-form">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="txnid" placeholder="UPI Transaction ID" required>
+      <button type="submit">Confirm Enrollment</button>
+    </form>
+    <div id="enroll-popup-success" class="enroll-success" style="display:none;">
+      <span>✅</span>
+      <h3>Thank you for enrolling!</h3>
+      <p>Your details have been received.<br>We will contact you soon with course access.</p>
+    </div>
+  </div>
+</div>
+<style>
+.enroll-modal {
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(45,3,59,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: enrollFadeIn 0.3s;
+}
+@keyframes enrollFadeIn { from { opacity:0; } to { opacity:1; } }
+.enroll-modal-content {
+  background: #fff;
+  border-radius: 28px;
+  max-width: 480px;
+  width: 96vw;
+  box-shadow: 0 8px 40px rgba(109,40,217,0.18);
+  padding: 38px 28px 28px 28px;
+  position: relative;
+  text-align: center;
+  animation: enrollFadeIn 0.3s;
+}
+.enroll-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #6d28d9;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.enroll-close:hover { color: #2d033b; }
+.enroll-modal-content h2 {
+  color: #6d28d9;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.enroll-upi-info {
+  margin-bottom: 18px;
+}
+.enroll-upi-id {
+  font-size: 1.08rem;
+  color: #2d033b;
+  margin-bottom: 8px;
+}
+.enroll-qr {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: #ede9fe;
+  box-shadow: 0 2px 12px rgba(109,40,217,0.10);
+}
+.enroll-pay-text {
+  font-size: 1.02rem;
+  color: #6d28d9;
+  margin-bottom: 8px;
+}
+.enroll-pay-icons img {
+  width: 32px; height: 32px;
+  margin: 0 4px 0 0;
+  vertical-align: middle;
+}
+.enroll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Increased gap for larger form */
+  margin-top: 18px;
+}
+.enroll-form input {
+  padding: 18px; /* Larger input fields */
+  border-radius: 10px;
+  border: 1.5px solid #a78bfa;
+  font-size: 1.18rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.enroll-form input:focus {
+  border: 2px solid #6d28d9;
+}
+.enroll-form button {
+  padding: 18px;
+  background: linear-gradient(90deg,#6d28d9 60%,#a78bfa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  font-weight: 800;
+  font-size: 1.18rem;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(109,40,217,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.enroll-form button:hover {
+  background: linear-gradient(90deg,#a78bfa 60%,#6d28d9 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width:600px) {
+  .enroll-modal-content { padding: 18px 4vw 14px 4vw; }
+  .enroll-qr { width: 100px; height: 100px; }
+  .enroll-modal-content h2 { font-size: 1.1rem; }
+}
+</style>
+<script>
+  // Open popup on button click
+  document.addEventListener('DOMContentLoaded', function() {
+    var enrollBtn = document.querySelector('.ai-class-section .cta-btn');
+    if(enrollBtn) {
+      enrollBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        document.getElementById('enroll-popup').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+  // Close popup
+  function closeEnrollPopup() {
+    document.getElementById('enroll-popup').style.display = 'none';
+    document.body.style.overflow = '';
+    document.getElementById('enroll-popup-form').style.display = 'flex';
+    document.getElementById('enroll-popup-success').style.display = 'none';
+  }
+  // Handle form submit with payment check
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('enroll-popup-form');
+    if(form) {
+      form.onsubmit = function(e){
+        var txn = form.txnid.value.trim();
+        if(!txn || txn.length < 6) { // Basic check for transaction ID
+          alert("Please enter a valid UPI Transaction ID after successful payment.");
+          form.txnid.focus();
+          e.preventDefault();
+          return false;
+        }
+        e.preventDefault();
+        form.style.display = 'none';
+        document.getElementById('enroll-popup-success').style.display = 'block';
+        // Optionally: send data to server/email here
+      };
+    }
+  });
+</script>
+</body>
+</html>
